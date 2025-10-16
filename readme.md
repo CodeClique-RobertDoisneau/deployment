@@ -9,10 +9,9 @@
 
 - Télécharger docker et docker-compose
 - Télécharger le [script de développement](https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-dev.sh), il crée les répertoires et clone les dépôts dans le répertoire courant
-- Checkout les branches voulues : (dans les dépôts frontend et backend) `git checkout feature/nom-de-la-feature`
+- Les technos se trouvent dans les différentes branches de `frontend` et `backend`.
 - Lancer les containers avec `docker compose --profile full watch` (les deux), `docker compose --profile frontend watch` (que le frontend), `docker compose --profile backend watch` (que le backend)
-- Eteindre les containers avec `docker compose down {service}` où service est proxy, frontend ou backend (ou n'importe quelle combinaison des trois séparés par des espaces)
-- Donc, pour éteindre tous les containers : `docker compose down proxy frontend backend`
+- Pour éteindre tous les containers : `docker compose down proxy frontend backend`
 
 ## Production
 
