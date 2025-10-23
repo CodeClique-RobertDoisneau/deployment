@@ -22,7 +22,7 @@ services:
       watch:
         - action: sync
           path: ../frontend/src
-          target: /app
+          target: /app/src
 
   backend:
     build:
@@ -33,4 +33,4 @@ services:
       watch:
         - action: sync
           path: ../backend/src
-          target: /app
+          target: /app/src
