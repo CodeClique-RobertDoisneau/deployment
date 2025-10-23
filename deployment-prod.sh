@@ -18,9 +18,4 @@ git clone https://github.com/CodeClique-RobertDoisneau/frontend.git
 git clone https://github.com/CodeClique-RobertDoisneau/deployment.git
 cd deployment
 
-if [ ! -f "docker-compose.prod.yml" ]; then
-    echo "docker-compose.prod.yml not found!"
-    exit 1
-fi
-
 docker compose -f docker-compose.prod.yml up -d

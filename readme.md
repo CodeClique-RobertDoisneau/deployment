@@ -9,6 +9,11 @@
 
 - Télécharger docker et docker-compose
 - Télécharger le [script de développement](https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-dev.sh), il crée les répertoires et clone les dépôts dans le répertoire courant
+```bash
+curl -fsSL https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-dev.sh -o deployment-dev.sh
+chmod +x deployment-dev.sh
+./deployment-dev.sh
+```
 - Les technos se trouvent dans les différentes branches de `frontend` et `backend`.
 - Lancer les containers avec `docker compose --profile full watch` (les deux), `docker compose --profile frontend watch` (que le frontend), `docker compose --profile backend watch` (que le backend)
 - Pour éteindre tous les containers : `docker compose down proxy frontend backend`

@@ -21,7 +21,7 @@ services:
     develop:
       watch:
         - action: sync
-          path: ../frontend
+          path: ../frontend/src
           target: /app
 
   backend:
@@ -32,5 +32,5 @@ services:
     develop:
       watch:
         - action: sync
-          path: ../backend
+          path: ../backend/src
           target: /app
