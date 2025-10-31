@@ -10,12 +10,7 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-mkdir CodeClique
+git clone --recurse-submodules https://github.com/CodeClique-RobertDoisneau/CodeClique.git
 cd CodeClique
-
-git clone https://github.com/CodeClique-RobertDoisneau/backend.git
-git clone https://github.com/CodeClique-RobertDoisneau/frontend.git
-git clone https://github.com/CodeClique-RobertDoisneau/deployment.git
-cd deployment
 
 docker compose -f docker-compose.prod.yml up -d

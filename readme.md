@@ -1,21 +1,16 @@
 # CodeClique
 
-[![Dernière release](https://img.shields.io/github/v/release/CodeClique-RobertDoisneau/deployment?style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/deployment/releases)
+[![Dernière release](https://img.shields.io/github/v/release/CodeClique-RobertDoisneau/CodeClique?style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/CodeClique/releases)
 [![Frontend issues](https://img.shields.io/github/issues/CodeClique-RobertDoisneau/frontend?label=frontend%20issues&style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/frontend/issues)
 [![Backend issues](https://img.shields.io/github/issues/CodeClique-RobertDoisneau/backend?label=backend%20issues&style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/backend/issues)
-[![License](https://img.shields.io/github/license/CodeClique-RobertDoisneau/deployment?style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/deployment/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/CodeClique-RobertDoisneau/CodeClique?style=for-the-badge)](https://github.com/CodeClique-RobertDoisneau/CodeClique/blob/main/LICENSE)
 
 ## Développement
 
-- Télécharger docker et docker-compose
-- Télécharger le [script de développement](https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-dev.sh), il crée les répertoires et clone les dépôts dans le répertoire courant
-```bash
-curl -fsSL https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-dev.sh -o deployment-dev.sh
-chmod +x deployment-dev.sh
-./deployment-dev.sh
-```
-- Les technos se trouvent dans les différentes branches de `frontend` et `backend`.
-- Lancer les containers avec `docker compose --profile full watch` (les deux), `docker compose --profile frontend watch` (que le frontend), `docker compose --profile backend watch` (que le backend)
+- Téléchargez docker et docker-compose
+- Clonez le dépôt principal de CodeClique et initialisez les sous-modules : `git clone --recurse-submodules https://github.com/CodeClique-RobertDoisneau/CodeClique.git`
+- Les technos se trouvent dans les différentes branches des sous-modules de `frontend` et `backend`.
+- Pour lancer les containers avec `docker compose --profile full watch` (les deux), `docker compose --profile frontend watch` (que le frontend), `docker compose --profile backend watch` (que le backend)
 - Pour éteindre tous les containers : `docker compose down proxy frontend backend`
 
 ## Production
@@ -24,7 +19,7 @@ chmod +x deployment-dev.sh
 - Lancez les commandes de mise en production:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/CodeClique-RobertDoisneau/deployment/main/deployment-prod.sh -o deployment-prod.sh
-chmod +x deployment-prod.sh
-./deployment-prod.sh
+curl -fsSL https://raw.githubusercontent.com/CodeClique-RobertDoisneau/CodeClique/main/deploy.sh -o deploy.sh
+chmod +x deploy.sh
+./deploy.sh
 ```
