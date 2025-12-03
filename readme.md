@@ -9,9 +9,9 @@
 
 - Téléchargez docker et docker-compose
 - Clonez le dépôt principal de CodeClique et initialisez les sous-modules : `git clone --recurse-submodules https://github.com/CodeClique-RobertDoisneau/CodeClique.git`
-- Les technos se trouvent dans les différentes branches des sous-modules de `frontend` et `backend`.
-- Pour lancer les containers avec `docker compose --profile full watch` (les deux), `docker compose --profile frontend watch` (que le frontend), `docker compose --profile backend watch` (que le backend)
-- Pour éteindre tous les containers : `docker compose down proxy frontend backend`
+- Les technos se trouvent dans les différentes branches des sous-modules de `frontend` et `backend`. Dans l'un de ces dossiers utilisez `git switch feature/{nom-feature}` pour changer de branche git.
+- Pour lancer les containers, utilisez `docker compose watch`
+- Pour éteindre tous les containers : `docker compose down`
 
 ## Production
 
@@ -19,7 +19,9 @@
 - Lancez les commandes de mise en production:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/CodeClique-RobertDoisneau/CodeClique/main/deploy.sh -o deploy.sh
-chmod +x deploy.sh
-./deploy.sh
+git clone --recurse-submodules https://github.com/CodeClique-RobertDoisneau/CodeClique.git
+cd CodeClique
+
+docker compose -f docker-compose.prod.yml build --no-cache
+docker compose -f docker-compose.prod.yml up -d
 ```
