@@ -22,6 +22,6 @@
 git clone --recurse-submodules https://github.com/CodeClique-RobertDoisneau/CodeClique.git
 cd CodeClique
 
-docker compose -f docker-compose.prod.yml build --no-cache
-docker compose -f docker-compose.prod.yml up -d
+docker compose -f compose.yaml -f compose.prod.yaml build --no-cache
+docker compose -f compose.yaml -f compose.prod.yaml up -d
 ```

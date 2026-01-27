@@ -1,0 +1,16 @@
+name: CodeClique-dev
+
+services:
+  frontend:
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+
+  backend:
+    develop:
+      watch:
+        - action: sync
+          path: ./backend/src
+          target: /app/src
