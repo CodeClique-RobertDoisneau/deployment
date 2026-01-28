@@ -8,12 +8,6 @@ x-logging: &default-logging
 
 services:
   proxy:
-    ports:
-      - "443:443"
-    volumes:
-      - ./proxy/nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
-      - /etc/letsencrypt/live/codeclique.fr/fullchain.pem:/etc/nginx/certificates/fullchain.pem:ro
-      - /etc/letsencrypt/live/codeclique.fr/privkey.pem:/etc/nginx/certificates/privkey.pem:ro
     restart: unless-stopped
     logging: *default-logging
 

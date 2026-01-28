@@ -6,8 +6,7 @@ services:
     depends_on:
       - backend
     volumes:
-      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./proxy/.htpasswd:/etc/nginx/.htpasswd:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
   db:
     image: postgres:18-alpine
