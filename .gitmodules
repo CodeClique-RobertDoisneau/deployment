@@ -1,6 +1,12 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/CodeClique-RobertDoisneau/frontend
+	branch = main
 [submodule "backend"]
 	path = backend
 	url = https://github.com/CodeClique-RobertDoisneau/backend
+	branch = main
+[submodule "courses"]
+	path = courses
+	url = https://github.com/CodeClique-RobertDoisneau/courses
+	branch = main

@@ -2,7 +2,7 @@ services:
   proxy:
     image: nginx:mainline-alpine
     ports:
-      - "${PROXY_PORT:-80}:80"
+      - "${PROXY_PORT}:80"
     depends_on:
       - backend
     volumes:
@@ -10,16 +10,14 @@ services:
 
   db:
     image: postgres:18-alpine
-    expose:
-      - "5432"
     environment:
-      POSTGRES_DB: ${DB_NAME:-codeclique_db}
-      POSTGRES_USER: ${DB_USER:-codeclique}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-codeclique}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-codeclique} -d ${DB_NAME:-codeclique_db}"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -34,11 +32,14 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      DB_USER: ${DB_USER:-codeclique}
-      DB_PASSWORD: ${DB_PASSWORD:-codeclique}
-      DB_NAME: ${DB_NAME:-codeclique_db}
+      DEBUG: ${DEBUG}
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       db:
         condition: service_healthy
 
-
+volumes:
+  postgres_data:

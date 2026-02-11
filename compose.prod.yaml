@@ -1,5 +1,3 @@
-name: CodeClique
-
 x-logging: &default-logging
   driver: "local"
   options:
